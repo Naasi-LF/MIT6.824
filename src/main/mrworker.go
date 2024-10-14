@@ -24,9 +24,12 @@ func main() {
 
 	mapf, reducef := loadPlugin(os.Args[1])
 
-	mr.Worker(mapf, reducef)
+	mr.Worker(mapf, reducef) 
+	// Worker使用map和reduce函数工作
+	// 本课程这里便要实现Worker
 }
 
+// 与sequential相同逻辑，不做阐述
 // load the application Map and Reduce functions
 // from a plugin file, e.g. ../mrapps/wc.so
 func loadPlugin(filename string) (func(string, string) []mr.KeyValue, func(string, []string) string) {
