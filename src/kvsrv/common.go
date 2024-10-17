@@ -1,12 +1,13 @@
+// kvsrv/common.go
+
 package kvsrv
 
 // Put or Append
 type PutAppendArgs struct {
-	Key   string
-	Value string
-	// You'll have to add definitions here.
-	// Field names must start with capital letters,
-	// otherwise RPC will break.
+	Key         string
+	Value       string
+	ClientID    int64
+	SequenceNum int
 }
 
 type PutAppendReply struct {
@@ -15,7 +16,7 @@ type PutAppendReply struct {
 
 type GetArgs struct {
 	Key string
-	// You'll have to add definitions here.
+	// 不需要 ClientID 和 SequenceNum，因为我们不对 Get 请求进行重复检测
 }
 
 type GetReply struct {
