@@ -1,6 +1,15 @@
-// shardkv/common.go
+// shardkv / common.go
 
 package shardkv
+
+//
+// Sharded key/value server.
+// Lots of replica groups, each running Raft.
+// Shardctrler decides which group serves each shard.
+// Shardctrler may change shard assignment from time to time.
+//
+// You will have to modify these definitions.
+//
 
 const (
 	OK             = "OK"
@@ -11,13 +20,15 @@ const (
 
 type Err string
 
-// Put 或 Append 请求参数
+// Put or Append
 type PutAppendArgs struct {
-	Key       string
-	Value     string
-	Op        string // "Put" 或 "Append"
-	ClientID  int64  // 客户端 ID
-	RequestID int64  // 请求 ID
+	// You'll have to add definitions here.
+	Key   string
+	Value string
+	Op    string // "Put" or "Append"
+	// You'll have to add definitions here.
+	// Field names must start with capital letters,
+	// otherwise RPC will break.
 }
 
 type PutAppendReply struct {
@@ -25,9 +36,8 @@ type PutAppendReply struct {
 }
 
 type GetArgs struct {
-	Key       string
-	ClientID  int64 // 客户端 ID
-	RequestID int64 // 请求 ID
+	Key string
+	// You'll have to add definitions here.
 }
 
 type GetReply struct {
